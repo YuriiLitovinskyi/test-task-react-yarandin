@@ -1,14 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Spinner from '../layout/Spinner';
 import FilmItem from './FilmItem';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getFilms } from '../../actions/FilmsActions';
+import FilmFilter from './FilmFilter';
 
-const Films = ({ films, getFilms }) => {
+
+const Films = ({ films, filtered, getFilms }) => {
 
     useEffect(() => {
         getFilms();
+        console.log(filtered)
         //eslint-disable-next-line
     }, [])
 
@@ -17,10 +21,24 @@ const Films = ({ films, getFilms }) => {
         return <Spinner />
     } else {
         return (
-            <div>
-                {films.map((film, index) => <FilmItem film={film} index={index} key={film.episode_id} />
-                )}
-            </div>
+            <Fragment>
+                <FilmFilter />
+                <TransitionGroup>
+                    {
+                        filtered !== undefined && filtered !== null ? 
+                            filtered.map((film, index) => (
+                                <CSSTransition key={film.episode_id} timeout={500} classNames="item">
+                                    <FilmItem film={film} index={index} />
+                                </CSSTransition>                                
+                        )) :
+                            films.map((film, index) => (
+                                <CSSTransition key={film.episode_id} timeout={500} classNames="item">
+                                    <FilmItem film={film} index={index} key={film.episode_id}  />
+                                </CSSTransition>                                
+                        )) 
+                    }  
+                </TransitionGroup>                           
+            </Fragment>
         )
     } 
   
@@ -32,7 +50,8 @@ Films.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    films: state.films  
+    films: state.films,
+    filtered: state.filtered  
 })
 
 export default connect(mapStateToProps, { getFilms })(Films);

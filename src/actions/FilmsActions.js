@@ -1,4 +1,4 @@
-import { GET_FILMS, GET_SINGLE_FILM, GET_STARSHIPS, GET_PLANETS } from './Types';
+import { GET_FILMS, GET_SINGLE_FILM, GET_STARSHIPS, GET_PLANETS, FILTERED_FILMS, CLEAR_FILTER } from './Types';
 
 export const getFilms = () => async (dispatch) => { 
    
@@ -53,5 +53,20 @@ export const getPlanets = (arrayOfPlanets) => async (dispatch) => {
     dispatch({
         type: GET_PLANETS,
         payload: planets
+    })
+}
+
+export const filteredFilms = (text) => (dispatch) => {
+
+    dispatch({
+        type: FILTERED_FILMS,
+        payload: text
+    })
+}
+
+export const clearFilter = () => (dispatch) => {
+
+    dispatch({
+        type: CLEAR_FILTER
     })
 }

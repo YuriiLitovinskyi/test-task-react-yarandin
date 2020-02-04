@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = ({ title }) => {
     return (         
-        <nav className="nav-wrapper blue darken-3">
+        <nav className="nav-wrapper blue-grey darken-3 nav">
             <div className="container">
                 <a href="#!" className="brand-logo">{title}</a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
