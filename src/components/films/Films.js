@@ -18,7 +18,7 @@ const Films = ({ films, getFilms }) => {
     } else {
         return (
             <div>
-                {films.map(film => <FilmItem film={film} key={film.episode_id} />
+                {films.map((film, index) => <FilmItem film={film} index={index} key={film.episode_id} />
                 )}
             </div>
         )

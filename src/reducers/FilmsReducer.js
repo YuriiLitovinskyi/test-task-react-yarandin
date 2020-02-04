@@ -1,8 +1,10 @@
-import { GET_FILMS, GET_SINGLE_FILM } from '../actions/Types';
+import { GET_FILMS, GET_SINGLE_FILM, GET_STARSHIPS, GET_PLANETS } from '../actions/Types';
 
 const initialState = {
     films: [],
-    singleFilm: {}  
+    singleFilm: {},
+    starships: [],
+    planets: []  
 }
 
 export default (state = initialState, action) => {
@@ -10,13 +12,24 @@ export default (state = initialState, action) => {
         case GET_FILMS:
             return {
                 ...state,
-                films: action.payload               
+                films: action.payload,
+                singleFilm: {}               
             };
         case GET_SINGLE_FILM:
             return {
                 ...state,
-                singleFilm: state.films.find(film => film.id === action.payload)
+                singleFilm: action.payload       
             };
+        case GET_STARSHIPS: 
+            return {
+                ...state,
+                starships: action.payload
+            };
+        case GET_PLANETS:
+            return {
+                ...state,
+                planets: action.payload
+            }
         default:
             return state;
     }

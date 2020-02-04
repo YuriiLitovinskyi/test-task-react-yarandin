@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Navbar from './components/layout/Navbar';
 import About from './components/pages/About';
+import Film from './components/films/Film';
 import store from './store';
 import { Provider } from 'react-redux';
 import 'materialize-css/dist/css/materialize.min.css';
@@ -18,6 +19,7 @@ const App = () => {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
+            <Route path="/:film_id" component={Film} />
           </Switch>     
         </div>
       </BrowserRouter> 

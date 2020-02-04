@@ -1,20 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const FilmItem = ({ film }) => {
+const FilmItem = ({ film, index }) => {
     return (
         <div className="row">
             <div className="col s12 m6">
-                <div className="card blue-grey darken-1">
-                    <div className="card-content white-text">
-                        <span className="card-title">{film.title}</span>
-                        <p>Episode {film.episode_id}</p>
-                        <p>Director: {film.director}</p>
-                        <p>Release date: {film.release_date}</p>
+                <Link to={`/${index}`}>
+                    <div className="card blue-grey darken-1">
+                        <div className="card-content white-text center">
+                            <span className="card-title">{film.title}</span>
+                            <p>Episode {film.episode_id}</p>
+                            <p>Director: {film.director}</p>
+                            <p>Release date: {film.release_date}</p>
+                        </div>                       
                     </div>
-                    <div className="card-action">
-                        <a href="!#">See Film Info</a>                       
-                    </div>
-                </div>
+                </Link>   
             </div>
         </div>
     )
