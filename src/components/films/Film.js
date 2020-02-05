@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Spinner from '../layout/Spinner';
 import { connect } from 'react-redux';
 import StarshipItem from './StarshipItem';
@@ -9,8 +10,7 @@ const Film = (props) => {
     const { films, singleFilm, starships, planets, getSingleFilm, getStarships,  getPlanets } = props;
 
     useEffect(() => {        
-        getSingleFilm(films[Number(props.match.params.film_id)]);   
-        console.log(props); 
+        getSingleFilm(films[Number(props.match.params.film_id)]);         
         //eslint-disable-next-line
     }, []) 
     
@@ -41,7 +41,7 @@ const Film = (props) => {
                         </div>
                         <div className="col s12 m6">
                             <button onClick={() => getPlanets(singleFilm.planets)} className="waves-effect waves-light btn">Show Planets</button>                              
-                            {starships !== undefined && planets.map((planet, index) => <PlanetItem key={index} planet={planet} />)}
+                            {planets !== undefined && planets.map((planet, index) => <PlanetItem key={index} ind={index} planet={planet} />)}
                         </div>
                     </div>
                 </div>  
@@ -49,6 +49,16 @@ const Film = (props) => {
         )
    } 
 }
+
+Film.propTypes = {
+    films: PropTypes.array,  
+    singleFilm: PropTypes.object,
+    starships: PropTypes.array,
+    planets: PropTypes.array,  
+    getSingleFilm: PropTypes.func.isRequired,
+    getStarships: PropTypes.func.isRequired,
+    getPlanets: PropTypes.func.isRequired 
+};
 
 const mapStateToProps = (state) => ({
     singleFilm: state.singleFilm,

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PlanetItem = ({ planet }) => {
     return (       
@@ -11,10 +12,17 @@ const PlanetItem = ({ planet }) => {
                     <p>Population: {planet.population}</p>
                     <p>Diameter: {planet.diameter}</p>
                     <p>Terrain: {planet.terrain}</p>                            
-                </div>                       
+                </div>                                   
             </div>                  
         </div>       
     )
 }
 
+PlanetItem.propTypes = {
+    planet: PropTypes.object.isRequired  
+};
+
 export default PlanetItem;
+
+
+

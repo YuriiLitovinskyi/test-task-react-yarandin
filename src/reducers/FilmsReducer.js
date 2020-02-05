@@ -1,11 +1,17 @@
-import { GET_FILMS, GET_SINGLE_FILM, GET_STARSHIPS, GET_PLANETS, FILTERED_FILMS, CLEAR_FILTER } from '../actions/Types';
+import { GET_FILMS,
+    GET_SINGLE_FILM, 
+    GET_STARSHIPS, 
+    GET_PLANETS, 
+    FILTERED_FILMS, 
+    CLEAR_FILTER,    
+    SORT } from '../actions/Types';
 
 const initialState = {
     films: [],
     singleFilm: {},
     starships: [],
     planets: [],
-    filtered: null  
+    filtered: null    
 }
 
 export default (state = initialState, action) => {
@@ -46,7 +52,36 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 filtered: null
-            };
+            };      
+        case SORT:          
+                if (action.payload === 'asc'){
+                    return {             
+                        ...state,
+                        films: state.films.slice().sort(function(a, b) {
+                            var nameA = a.title.toLowerCase(),
+                              nameB = b.title.toLowerCase()
+                            if (nameA < nameB)
+                              return -1
+                            if (nameA > nameB)
+                              return 1
+                            return 0
+                          })
+                    }
+                } else {
+                    return {             
+                        ...state,
+                        films: state.films.slice().sort(function(a, b) {
+                            var nameA = a.title.toLowerCase(),
+                              nameB = b.title.toLowerCase()
+                            if (nameA < nameB)
+                              return 1
+                            if (nameA > nameB)
+                              return -1
+                            return 0
+                          })
+                    }
+                }
+           
         default:
             return state;
     }

@@ -25,3 +25,23 @@ h4 {
   transition: opacity 500ms ease-in;
 }
 
+.hide {
+  display: none;
+}
+
+.btn {
+  margin: 5px 10px;
+}
+
+.input {
+  width: 800px;
+  display: block;
+  margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .input {
+    width: 70%
+  }
+}
+

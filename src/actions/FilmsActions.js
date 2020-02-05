@@ -1,10 +1,17 @@
-import { GET_FILMS, GET_SINGLE_FILM, GET_STARSHIPS, GET_PLANETS, FILTERED_FILMS, CLEAR_FILTER } from './Types';
+import { 
+    GET_FILMS, 
+    GET_SINGLE_FILM, 
+    GET_STARSHIPS, 
+    GET_PLANETS, 
+    FILTERED_FILMS, 
+    CLEAR_FILTER,     
+    SORT } from './Types';
 
 export const getFilms = () => async (dispatch) => { 
    
     const responce = await fetch('https://swapi.co/api/films/');
     const films = await responce.json();
-    console.log(films.results); 
+    //console.log(films.results); 
 
     dispatch({
         type: GET_FILMS,
@@ -16,7 +23,7 @@ export const getSingleFilm = (film) => async (dispatch) => {
 
     const responce = await fetch(`${film.url}`);
     const singleFilm = await responce.json();
-    console.log(singleFilm); 
+    //console.log(singleFilm); 
 
     dispatch({
         type: GET_SINGLE_FILM,
@@ -32,7 +39,7 @@ export const getStarships = (arrayOfStarsips) => async (dispatch) => {
             return shipResponse.json()
         })
     )
-    console.log(starships)
+    //console.log(starships)
 
     dispatch({
         type: GET_STARSHIPS,
@@ -48,7 +55,7 @@ export const getPlanets = (arrayOfPlanets) => async (dispatch) => {
             return planetResponse.json()
         })
     )
-    console.log(planets)
+    //console.log(planets)
 
     dispatch({
         type: GET_PLANETS,
@@ -68,5 +75,13 @@ export const clearFilter = () => (dispatch) => {
 
     dispatch({
         type: CLEAR_FILTER
+    })
+}
+
+export const sortAlphabetical = (type) => (dispatch) => {  
+
+    dispatch({
+        type: SORT,
+        payload: type
     })
 }

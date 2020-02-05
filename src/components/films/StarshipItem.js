@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const StarshipItem = ({ starship }) => {
     return (        
@@ -16,5 +17,9 @@ const StarshipItem = ({ starship }) => {
         </div>
     )
 }
+
+StarshipItem.propTypes = {
+    starship: PropTypes.object.isRequired  
+};
 
 export default StarshipItem;

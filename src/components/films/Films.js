@@ -4,18 +4,16 @@ import Spinner from '../layout/Spinner';
 import FilmItem from './FilmItem';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getFilms } from '../../actions/FilmsActions';
+import { getFilms, sortAlphabetical } from '../../actions/FilmsActions';
 import FilmFilter from './FilmFilter';
 
 
-const Films = ({ films, filtered, getFilms }) => {
+const Films = ({ films, filtered, getFilms, sortAlphabetical }) => {
 
     useEffect(() => {
-        getFilms();
-        console.log(filtered)
+        getFilms();        
         //eslint-disable-next-line
     }, [])
-
 
     if(films === undefined){
         return <Spinner />
@@ -23,6 +21,8 @@ const Films = ({ films, filtered, getFilms }) => {
         return (
             <Fragment>
                 <FilmFilter />
+                <button className={filtered === null || filtered === undefined ? "waves-effect waves-light btn" : "hide"} onClick={() => {sortAlphabetical('asc')}}>Sort asc</button>
+                <button className={filtered === null || filtered === undefined ? "waves-effect waves-light btn" : "hide"} onClick={() => {sortAlphabetical('desc')}}>Sort desc</button>
                 <TransitionGroup>
                     {
                         filtered !== undefined && filtered !== null ? 
@@ -46,13 +46,16 @@ const Films = ({ films, filtered, getFilms }) => {
 
 Films.propTypes = {
     films: PropTypes.array,   
-    getFilms: PropTypes.func.isRequired
+    filtered: PropTypes.array,   
+    getFilms: PropTypes.func.isRequired,
+    sortAlphabetical: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
     films: state.films,
-    filtered: state.filtered  
+    filtered: state.filtered,
+    sortType: state.sortType  
 })
 
-export default connect(mapStateToProps, { getFilms })(Films);
+export default connect(mapStateToProps, { getFilms, sortAlphabetical })(Films);
 
