@@ -9,8 +9,10 @@ import { getSingleFilm, getStarships,  getPlanets } from '../../actions/FilmsAct
 const Film = (props) => {
     const { films, singleFilm, starships, planets, getSingleFilm, getStarships,  getPlanets } = props;
 
-    useEffect(() => {        
-        getSingleFilm(films[Number(props.match.params.film_id)]);         
+    useEffect(() => { 
+        if( films !== undefined ){ 
+            getSingleFilm(films[Number(props.match.params.film_id)]); 
+        }                       
         //eslint-disable-next-line
     }, []) 
     

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Navbar from './components/layout/Navbar';
 import About from './components/pages/About';
@@ -13,7 +13,7 @@ import './App.css';
 const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter>
         <div className="App">
           <Navbar />        
           <Switch>
@@ -22,7 +22,7 @@ const App = () => {
             <Route path="/:film_id" component={Film} />
           </Switch>     
         </div>
-      </BrowserRouter> 
+      </HashRouter> 
     </Provider>    
   );
 }
