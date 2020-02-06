@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0e2103e0a2756f1ca54188e45113e274",
+    "revision": "4ee5df3c664451eabb0f97cabbf3f3ca",
     "url": "/test-task-react-yarandin/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test-task-react-yarandin/static/css/2.2623327d.chunk.css"
   },
   {
-    "revision": "451f7c6ec92ffbcbc25c",
-    "url": "/test-task-react-yarandin/static/css/main.1a4fe951.chunk.css"
+    "revision": "1dfb9d878503fd0d27aa",
+    "url": "/test-task-react-yarandin/static/css/main.dc00c781.chunk.css"
   },
   {
     "revision": "d775350de4cee2cc1532",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/test-task-react-yarandin/static/js/2.68c8eff4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "451f7c6ec92ffbcbc25c",
-    "url": "/test-task-react-yarandin/static/js/main.66c90893.chunk.js"
+    "revision": "1dfb9d878503fd0d27aa",
+    "url": "/test-task-react-yarandin/static/js/main.91cec821.chunk.js"
   },
   {
     "revision": "648bc1de212b434edcfd",
