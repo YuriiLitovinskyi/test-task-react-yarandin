@@ -4,14 +4,19 @@ import { GET_FILMS,
     GET_PLANETS, 
     FILTERED_FILMS, 
     CLEAR_FILTER,    
-    SORT } from '../actions/Types';
+    SORT, 
+    GET_STARSHIP_FILMS, 
+    GET_PLANET_FILMS } from '../actions/Types';
 
 const initialState = {
     films: [],
     singleFilm: {},
     starships: [],
     planets: [],
-    filtered: null    
+    filtered: null,
+    starshipFilms: {},
+    planetFilms: {}
+      
 }
 
 export default (state = initialState, action) => {
@@ -54,34 +59,43 @@ export default (state = initialState, action) => {
                 filtered: null
             };      
         case SORT:          
-                if (action.payload === 'asc'){
-                    return {             
-                        ...state,
-                        films: state.films.slice().sort(function(a, b) {
-                            var nameA = a.title.toLowerCase(),
-                              nameB = b.title.toLowerCase()
-                            if (nameA < nameB)
-                              return -1
-                            if (nameA > nameB)
-                              return 1
-                            return 0
-                          })
-                    }
-                } else {
-                    return {             
-                        ...state,
-                        films: state.films.slice().sort(function(a, b) {
-                            var nameA = a.title.toLowerCase(),
-                              nameB = b.title.toLowerCase()
-                            if (nameA < nameB)
-                              return 1
-                            if (nameA > nameB)
-                              return -1
-                            return 0
-                          })
-                    }
+            if (action.payload === 'asc'){
+                return {             
+                    ...state,
+                    films: state.films.slice().sort(function(a, b) {
+                        var nameA = a.title.toLowerCase(),
+                            nameB = b.title.toLowerCase()
+                        if (nameA < nameB)
+                            return -1
+                        if (nameA > nameB)
+                            return 1
+                        return 0
+                        })
                 }
-           
+            } else {
+                return {             
+                    ...state,
+                    films: state.films.slice().sort(function(a, b) {
+                        var nameA = a.title.toLowerCase(),
+                            nameB = b.title.toLowerCase()
+                        if (nameA < nameB)
+                            return 1
+                        if (nameA > nameB)
+                            return -1
+                        return 0
+                        })
+                }
+            };
+        case GET_STARSHIP_FILMS:           
+            return {
+                ...state,
+                starshipFilms: action.payload  
+            };
+        case GET_PLANET_FILMS:
+            return {
+                ...state,
+                planetFilms: action.payload
+            };
         default:
             return state;
     }

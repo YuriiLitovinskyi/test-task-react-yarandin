@@ -5,7 +5,9 @@ import {
     GET_PLANETS, 
     FILTERED_FILMS, 
     CLEAR_FILTER,     
-    SORT } from './Types';
+    SORT, 
+    GET_STARSHIP_FILMS, 
+    GET_PLANET_FILMS } from './Types';
 
 export const getFilms = () => async (dispatch) => { 
    
@@ -83,5 +85,49 @@ export const sortAlphabetical = (type) => (dispatch) => {
     dispatch({
         type: SORT,
         payload: type
+    })
+}
+
+export const getStarshipFilms = (arrayOfStarhipFilms, indexSth) => async (dispatch) => {
+
+    let starshipFilms = await Promise.all(
+        arrayOfStarhipFilms.map(async shipFilmUrl => {
+            let shipFilmResponse = await fetch(shipFilmUrl)
+            return shipFilmResponse.json()
+        })
+    )
+    //console.log(starshipFilms)
+    let newItem = {
+            number: indexSth,
+            item: starshipFilms
+        }
+    
+   // console.log(newItem)
+
+    dispatch({
+        type: GET_STARSHIP_FILMS,
+        payload:  newItem
+    })
+}
+
+export const getPlanetFilms = (arrayOfPlanetFilms, indexSth) => async (dispatch) => {
+
+    let planetFilms = await Promise.all(
+        arrayOfPlanetFilms.map(async planetFilmUrl => {
+            let planetFilmResponse = await fetch(planetFilmUrl)
+            return planetFilmResponse.json()
+        })
+    )
+    //console.log(planetFilms)
+    let newItem = {
+            number: indexSth,
+            item: planetFilms
+        }
+    
+    //console.log(newItem)  
+
+    dispatch({
+        type: GET_PLANET_FILMS,
+        payload:  newItem
     })
 }

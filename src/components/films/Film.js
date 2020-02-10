@@ -31,6 +31,7 @@ const Film = (props) => {
                                 <p>Director: {singleFilm.director}</p>
                                 <p>Producers: {singleFilm.producer}</p>
                                 <p>Release date: {singleFilm.release_date}</p>
+                                <br />
                                 <p>{singleFilm.opening_crawl}</p>                              
                             </div>
                         </div>
@@ -39,11 +40,11 @@ const Film = (props) => {
                     <div className="row">
                         <div className="col s12 m6">
                             <button onClick={() => getStarships(singleFilm.starships)} className="waves-effect waves-light btn">Show Starships</button>                              
-                            {starships !== undefined && starships.map((starship, index) => <StarshipItem key={index} starship={starship} />)} 
+                            {starships !== undefined && starships.map((starship, index) => <StarshipItem key={index} indexSth={index} starship={starship} />)} 
                         </div>
                         <div className="col s12 m6">
                             <button onClick={() => getPlanets(singleFilm.planets)} className="waves-effect waves-light btn">Show Planets</button>                              
-                            {planets !== undefined && planets.map((planet, index) => <PlanetItem key={index} ind={index} planet={planet} />)}
+                            {planets !== undefined && planets.map((planet, index) => <PlanetItem key={index} ind={index} indexPln={index} planet={planet} />)}
                         </div>
                     </div>
                 </div>  

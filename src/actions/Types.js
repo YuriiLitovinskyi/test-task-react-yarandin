@@ -5,3 +5,5 @@ export const GET_PLANETS = "GET_PLANETS";
 export const FILTERED_FILMS = "FILTERED_FILMS";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 export const SORT = "SORT";
+export const GET_STARSHIP_FILMS = "GET_STARSHIP_FILMS";
+export const GET_PLANET_FILMS = "GET_PLANET_FILMS";
