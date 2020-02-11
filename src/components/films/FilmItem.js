@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const FilmItem = ({ film, index }) => {
     return (
-        <div className="row">
-            <div className="col s12 m12 main-card"  style={{ padding: '0 50px', margin: 'auto', display: 'block' }} >
+        <div className="row" style={stl}>
+            <div className="col s12 m6" style={stl}>
                 <Link to={`/${index}`}>
                     <div className="card blue-grey darken-2">
                         <div className="card-content white-text center">
@@ -27,3 +27,9 @@ FilmItem.propTypes = {
 };
 
 export default FilmItem;
+
+const stl = {
+    float: 'none',
+    marginLeft: 'auto',
+    marginRight: 'auto'
+}
