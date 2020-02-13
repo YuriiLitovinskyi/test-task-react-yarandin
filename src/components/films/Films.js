@@ -16,7 +16,7 @@ const Films = ({ films, filtered, getFilms, sortAlphabetical }) => {
     }, [])
 
     if(films === undefined){
-        return <Spinner />
+        return <Spinner style={{backgroundColor: 'yellow'}}/>
     } else {
         return (
             <Fragment>
