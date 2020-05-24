@@ -26,8 +26,10 @@ export const getFilms = () => async (dispatch) => {
 
 export const getSingleFilm = (film) => async (dispatch) => {
 
+    const filmUrl = film.url.replace(/^http?\//i, "https");
+
     try {
-        const responce = await fetch(`${film.url}`);
+        const responce = await fetch(`${filmUrl}`);
         const singleFilm = await responce.json();         
     
         dispatch({

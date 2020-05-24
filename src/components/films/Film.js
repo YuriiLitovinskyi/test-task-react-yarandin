@@ -11,6 +11,7 @@ const Film = (props) => {
     useEffect(() => { 
         if( films !== undefined ){ 
             getSingleFilm(films[Number(props.match.params.film_id)]); 
+            console.log(films[Number(props.match.params.film_id)]);
         }                       
         //eslint-disable-next-line
     }, []) 
