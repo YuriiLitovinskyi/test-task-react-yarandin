@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/test-task-react-yarandin/static/css/main.674e7078.chunk.css",
-    "main.js": "/test-task-react-yarandin/static/js/main.0c8ee3f8.chunk.js",
-    "main.js.map": "/test-task-react-yarandin/static/js/main.0c8ee3f8.chunk.js.map",
+    "main.js": "/test-task-react-yarandin/static/js/main.0bc34793.chunk.js",
+    "main.js.map": "/test-task-react-yarandin/static/js/main.0bc34793.chunk.js.map",
     "runtime-main.js": "/test-task-react-yarandin/static/js/runtime-main.18351dd3.js",
     "runtime-main.js.map": "/test-task-react-yarandin/static/js/runtime-main.18351dd3.js.map",
     "static/css/2.2623327d.chunk.css": "/test-task-react-yarandin/static/css/2.2623327d.chunk.css",
     "static/js/2.67d9cd52.chunk.js": "/test-task-react-yarandin/static/js/2.67d9cd52.chunk.js",
     "static/js/2.67d9cd52.chunk.js.map": "/test-task-react-yarandin/static/js/2.67d9cd52.chunk.js.map",
     "index.html": "/test-task-react-yarandin/index.html",
-    "precache-manifest.d946c9e14a6b85bbfc4fc3c64e7a1f7c.js": "/test-task-react-yarandin/precache-manifest.d946c9e14a6b85bbfc4fc3c64e7a1f7c.js",
+    "precache-manifest.5f29dd127e0dbbb9fd0d2446ab1fd290.js": "/test-task-react-yarandin/precache-manifest.5f29dd127e0dbbb9fd0d2446ab1fd290.js",
     "service-worker.js": "/test-task-react-yarandin/service-worker.js",
     "static/css/2.2623327d.chunk.css.map": "/test-task-react-yarandin/static/css/2.2623327d.chunk.css.map",
     "static/css/main.674e7078.chunk.css.map": "/test-task-react-yarandin/static/css/main.674e7078.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.2623327d.chunk.css",
     "static/js/2.67d9cd52.chunk.js",
     "static/css/main.674e7078.chunk.css",
-    "static/js/main.0c8ee3f8.chunk.js"
+    "static/js/main.0bc34793.chunk.js"
   ]
 }
