@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "955e08f6d0d247f52420fd4db0b0b355",
+    "revision": "d540a466802857cb47cd09303a469d36",
     "url": "/test-task-react-yarandin/index.html"
   },
   {
-    "revision": "c24c593d469c6c87d60b",
+    "revision": "e5aec403305f300a4639",
     "url": "/test-task-react-yarandin/static/css/2.2623327d.chunk.css"
   },
   {
-    "revision": "7e5c37f29a820c34cd92",
-    "url": "/test-task-react-yarandin/static/css/main.53de0327.chunk.css"
+    "revision": "58b08c3ba93ac6c843e7",
+    "url": "/test-task-react-yarandin/static/css/main.674e7078.chunk.css"
   },
   {
-    "revision": "c24c593d469c6c87d60b",
-    "url": "/test-task-react-yarandin/static/js/2.806cde91.chunk.js"
+    "revision": "e5aec403305f300a4639",
+    "url": "/test-task-react-yarandin/static/js/2.67d9cd52.chunk.js"
   },
   {
     "revision": "928d7b5eb39d16fe9a880722c974b51e",
-    "url": "/test-task-react-yarandin/static/js/2.806cde91.chunk.js.LICENSE.txt"
+    "url": "/test-task-react-yarandin/static/js/2.67d9cd52.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7e5c37f29a820c34cd92",
-    "url": "/test-task-react-yarandin/static/js/main.a710c59b.chunk.js"
+    "revision": "58b08c3ba93ac6c843e7",
+    "url": "/test-task-react-yarandin/static/js/main.0c8ee3f8.chunk.js"
   },
   {
     "revision": "648bc1de212b434edcfd",
