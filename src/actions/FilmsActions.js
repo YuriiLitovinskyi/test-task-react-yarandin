@@ -10,60 +10,72 @@ import {
     GET_PLANET_FILMS } from './Types';
 
 export const getFilms = () => async (dispatch) => { 
-   
-    const responce = await fetch('https://swapi.co/api/films/');
-    const films = await responce.json();
-    //console.log(films.results); 
 
-    dispatch({
-        type: GET_FILMS,
-        payload: films.results
-    })
-}
+    try {
+        const responce = await fetch('https://swapi.dev/api/films/');
+        const films = await responce.json();         
+    
+        dispatch({
+            type: GET_FILMS,
+            payload: films.results
+        });        
+    } catch (error) {
+        console.error(error);
+    }   
+};
 
 export const getSingleFilm = (film) => async (dispatch) => {
 
-    const responce = await fetch(`${film.url}`);
-    const singleFilm = await responce.json();
-    //console.log(singleFilm); 
+    try {
+        const responce = await fetch(`${film.url}`);
+        const singleFilm = await responce.json();         
+    
+        dispatch({
+            type: GET_SINGLE_FILM,
+            payload: singleFilm
+        });        
+    } catch (error) {
+        console.error(error);
+    }
+};
 
-    dispatch({
-        type: GET_SINGLE_FILM,
-        payload: singleFilm
-    })
-}
-
-export const getStarships = (arrayOfStarsips) => async (dispatch) => {   
-
-    let starships = await Promise.all(
-        arrayOfStarsips.map(async shipUrl => {
-            let shipResponse = await fetch(shipUrl)
-            return shipResponse.json()
-        })
-    )
-    //console.log(starships)
-
-    dispatch({
-        type: GET_STARSHIPS,
-        payload: starships
-    })
-}
+export const getStarships = (arrayOfStarsips) => async (dispatch) => { 
+    
+    try {
+        let starships = await Promise.all(
+            arrayOfStarsips.map(async shipUrl => {
+                let shipResponse = await fetch(shipUrl)
+                return shipResponse.json()
+            })
+        )        
+    
+        dispatch({
+            type: GET_STARSHIPS,
+            payload: starships
+        });        
+    } catch (error) {
+        console.error(error);
+    }
+};
 
 export const getPlanets = (arrayOfPlanets) => async (dispatch) => {
 
-    let planets = await Promise.all(
-        arrayOfPlanets.map(async planetUrl => {
-            let planetResponse = await fetch(planetUrl)
-            return planetResponse.json()
-        })
-    )
-    //console.log(planets)
-
-    dispatch({
-        type: GET_PLANETS,
-        payload: planets
-    })
-}
+    try {
+        let planets = await Promise.all(
+            arrayOfPlanets.map(async planetUrl => {
+                let planetResponse = await fetch(planetUrl)
+                return planetResponse.json()
+            })
+        )        
+    
+        dispatch({
+            type: GET_PLANETS,
+            payload: planets
+        });        
+    } catch (error) {
+        console.error(error);
+    }
+};
 
 export const filteredFilms = (text) => (dispatch) => {
 
@@ -90,44 +102,46 @@ export const sortAlphabetical = (type) => (dispatch) => {
 
 export const getStarshipFilms = (arrayOfStarhipFilms, indexSth) => async (dispatch) => {
 
-    let starshipFilms = await Promise.all(
-        arrayOfStarhipFilms.map(async shipFilmUrl => {
-            let shipFilmResponse = await fetch(shipFilmUrl)
-            return shipFilmResponse.json()
-        })
-    )
-    //console.log(starshipFilms)
-    let newItem = {
-            number: indexSth,
-            item: starshipFilms
-        }
-    
-   // console.log(newItem)
-
-    dispatch({
-        type: GET_STARSHIP_FILMS,
-        payload:  newItem
-    })
-}
+    try {
+        let starshipFilms = await Promise.all(
+            arrayOfStarhipFilms.map(async shipFilmUrl => {
+                let shipFilmResponse = await fetch(shipFilmUrl)
+                return shipFilmResponse.json()
+            })
+        )        
+        let newItem = {
+                number: indexSth,
+                item: starshipFilms
+            }       
+      
+        dispatch({
+            type: GET_STARSHIP_FILMS,
+            payload:  newItem
+        });        
+    } catch (error) {
+        console.error(error);
+    }
+};
 
 export const getPlanetFilms = (arrayOfPlanetFilms, indexSth) => async (dispatch) => {
 
-    let planetFilms = await Promise.all(
-        arrayOfPlanetFilms.map(async planetFilmUrl => {
-            let planetFilmResponse = await fetch(planetFilmUrl)
-            return planetFilmResponse.json()
-        })
-    )
-    //console.log(planetFilms)
-    let newItem = {
-            number: indexSth,
-            item: planetFilms
-        }
-    
-    //console.log(newItem)  
-
-    dispatch({
-        type: GET_PLANET_FILMS,
-        payload:  newItem
-    })
-}
+    try {
+        let planetFilms = await Promise.all(
+            arrayOfPlanetFilms.map(async planetFilmUrl => {
+                let planetFilmResponse = await fetch(planetFilmUrl)
+                return planetFilmResponse.json()
+            })
+        )    
+        let newItem = {
+                number: indexSth,
+                item: planetFilms
+            }        
+      
+        dispatch({
+            type: GET_PLANET_FILMS,
+            payload:  newItem
+        });        
+    } catch (error) {
+        console.error(error);
+    }
+};

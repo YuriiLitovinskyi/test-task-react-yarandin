@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import Spinner from '../layout/Spinner';
 import FilmItem from './FilmItem';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -11,15 +10,14 @@ import FilmFilter from './FilmFilter';
 const Films = ({ films, filtered, getFilms, sortAlphabetical }) => {
 
     useEffect(() => {
-        getFilms();        
-        //eslint-disable-next-line
-    }, [])
+        getFilms();      
+    }, [getFilms])
 
     if(films === undefined){
-        return <Spinner style={{backgroundColor: 'yellow'}}/>
+        return <div className="loader"></div>
     } else {
         return (
-            <Fragment>
+            <Fragment>                
                 <FilmFilter />
                 <button className={filtered === null || filtered === undefined ? "waves-effect waves-light btn" : "hide"} onClick={() => {sortAlphabetical('asc')}}>Sort asc</button>
                 <button className={filtered === null || filtered === undefined ? "waves-effect waves-light btn" : "hide"} onClick={() => {sortAlphabetical('desc')}}>Sort desc</button>

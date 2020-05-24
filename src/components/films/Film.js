@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Spinner from '../layout/Spinner';
 import { connect } from 'react-redux';
 import StarshipItem from './StarshipItem';
 import PlanetItem from './PlanetItem';
@@ -18,10 +17,10 @@ const Film = (props) => {
     
     
     if(singleFilm === undefined || Object.entries(singleFilm).length === 0){  
-        return <Spinner />
+        return <div className="loader"></div>
     } else {
         return (
-            <div className="container center">
+            <div className="container center">                
                 <div className="row">
                     <div className="col s12 m12">
                         <div className="card blue-grey darken-2">
